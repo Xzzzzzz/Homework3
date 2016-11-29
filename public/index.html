@@ -1,0 +1,78 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <title>Resume</title>
+</head>
+<body>
+  <div class="container" ng-controller="AppCtrl">
+    <h1>Kaicheng Zhou's Resume</h1>
+
+    <table class="table">
+      <thead>
+        <tr><th>Adding New Stuf</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input class="form-control" ng-model="edu.school"></td>
+          <td><input class="form-control" ng-model="edu.degree"></td>
+          <td><input class="form-control" ng-model="edu.last_year"></td>
+          <td><button class="btn btn-info" ng-click="addSchool()">Add New School</button></td>
+        </tr>
+      </tbody>
+      
+     <thead>
+        <tr>
+          <th>School</th>         
+          <th>Degree</th>
+          <th>Last Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="edu in education">
+          <td>{{edu.school}}</td>
+          <td>{{edu.degree}}</td>
+          <td>{{edu.last_year}}</td>
+          <td><button class="btn btn-danger" ng-click="remove(edu._id)">Remove</button></td>
+        </tr>
+      </tbody>
+     <thead>
+        <tr>
+          <th>Skill</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="skill in skill">
+          <td>{{skill.skill}}</td>
+          <td><button class="btn btn-danger" ng-click="remove(skill._id)">Remove</button></td>
+        </tr>
+      </tbody>
+     <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="project in project">
+          <td>{{project.title}}</td>
+          <td>{{project.description}}</td>
+          <td><button class="btn btn-danger" ng-click="remove(project._id)">Remove</button></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
